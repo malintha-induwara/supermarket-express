@@ -11,3 +11,5 @@ class Item {
     this.Price = Price;
   }
 }
+
+export default Item;

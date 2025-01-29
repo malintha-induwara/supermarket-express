@@ -13,3 +13,5 @@ class OrderDetails {
     this.Price = Price;
   }
 }
+
+export default OrderDetails;

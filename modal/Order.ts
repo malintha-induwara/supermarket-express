@@ -9,3 +9,5 @@ class Order {
     this.OrderDate = OrderDate;
   }
 }
+
+export default Order;

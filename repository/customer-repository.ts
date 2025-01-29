@@ -1,13 +1,10 @@
 // customer-repository.ts
 import { PrismaClient } from "@prisma/client";
+import Customer from "../modal/Customer";
 
 const prisma = new PrismaClient();
 
-interface CustomerCreateInput {
-  Name: string;
-  Address: string;
-  Email: string;
-}
+type CustomerCreateInput = Omit<Customer, "CustomerID">;
 
 export async function getAllCustomers() {
   try {

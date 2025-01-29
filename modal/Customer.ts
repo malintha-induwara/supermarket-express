@@ -11,3 +11,5 @@ class Customer {
     this.Email = Email;
   }
 }
+
+export default Customer;

@@ -32,7 +32,7 @@ customerRouter.post("/", async (req, res) => {
   try {
     const newCustomer = req.body;
     const customer = await createCustomer(newCustomer);
-    res.status(201).json(newCustomer);
+    res.status(201).json(customer);
   } catch (err) {
     if (err instanceof Error && err.message.includes("Unique constraint")) {
       res.status(400).json({ error: "Email already exists" });
