@@ -65,7 +65,7 @@ itemRouter.delete("/:id", async (req, res) => {
   try {
     const ItemID = parseInt(req.params.id);
     await deleteItem(ItemID);
-    res.status(204).send();
+    res.json({ItemID})
   } catch (err) {
     if (err instanceof Error && err.message.includes("Record to delete does not exist")) {
       res.status(404).json({ error: "Item not found" });

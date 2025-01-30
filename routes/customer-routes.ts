@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createCustomer, deleteCustomer, getAllCustomers, getCustomerById } from "../repository/customer-repository";
+import { createCustomer, deleteCustomer, getAllCustomers, getCustomerById, updateCustomer } from "../repository/customer-repository";
 
 const customerRouter = Router();
 
@@ -46,8 +46,8 @@ customerRouter.post("/", async (req, res) => {
 customerRouter.put("/:id", async (req, res) => {
   try {
     const CustomerID = parseInt(req.params.id);
-    const updateCustomer = req.body;
-    const updatedCustomer = await updateCustomer(CustomerID, updateCustomer);
+    const updateData = req.body;
+    const updatedCustomer = await updateCustomer(CustomerID, updateData);
     res.json(updatedCustomer);
   } catch (err) {
     if (err instanceof Error && err.message.includes("Record to update not found")) {
@@ -65,7 +65,7 @@ customerRouter.delete("/:id", async (req, res) => {
   try {
     const CustomerID = parseInt(req.params.id);
     await deleteCustomer(CustomerID);
-    res.status(204).send();
+    res.json({CustomerID})
   } catch (err) {
     if (err instanceof Error && err.message.includes("Record to delete does not exist")) {
       res.status(404).json({ error: "Customer not found" });
