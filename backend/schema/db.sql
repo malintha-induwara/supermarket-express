@@ -1,9 +1,9 @@
 
 -- Create database schema
 
-CREATE DATABASE Thogakade;
+CREATE DATABASE Supermarket;
 
-USE Thogakade;
+USE Supermarket;
 
 
 §
